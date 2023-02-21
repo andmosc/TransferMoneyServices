@@ -1,4 +1,4 @@
-package ru.andmosc.TransferMoney;
+package ru.andmosc.transferMoney;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

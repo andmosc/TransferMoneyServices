@@ -1,4 +1,4 @@
-package ru.andmosc.TransferMoney.util;
+package ru.andmosc.transferMoney.util;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

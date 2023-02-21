@@ -1,4 +1,4 @@
-package ru.andmosc.TransferMoney.models;
+package ru.andmosc.transferMoney.models;
 
 public class Amount {
     private Long value;

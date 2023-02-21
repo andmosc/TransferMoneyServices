@@ -1,4 +1,4 @@
-package ru.andmosc.TransferMoney.exception;
+package ru.andmosc.transferMoney.exception;
 
 public class ErrorVerificationCard extends RuntimeException {
     public ErrorVerificationCard(String message) {

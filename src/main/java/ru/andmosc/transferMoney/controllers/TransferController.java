@@ -1,5 +1,8 @@
-package ru.andmosc.TransferMoney.controllers;
+package ru.andmosc.transferMoney.controllers;
 
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,30 +10,30 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import ru.andmosc.TransferMoney.dto.ConfirmOperation;
-import ru.andmosc.TransferMoney.exception.ErrorConfirmOperation;
-import ru.andmosc.TransferMoney.exception.ErrorVerificationCard;
-import ru.andmosc.TransferMoney.models.MoneyTransfer;
-import ru.andmosc.TransferMoney.services.TransferServices;
-import ru.andmosc.TransferMoney.util.ErrorResponse;
+import ru.andmosc.transferMoney.dto.ConfirmOperation;
+import ru.andmosc.transferMoney.exception.ErrorConfirmOperation;
+import ru.andmosc.transferMoney.exception.ErrorVerificationCard;
+import ru.andmosc.transferMoney.models.MoneyTransfer;
+import ru.andmosc.transferMoney.services.TransferServices;
+import ru.andmosc.transferMoney.util.ErrorResponse;
 
 @RestController
+
 public class TransferController {
     private final TransferServices transferServices;
-
+    private static final Logger log = LoggerFactory.getLogger(TransferServices.class);
     @Autowired
     public TransferController(TransferServices transferServices) {
         this.transferServices = transferServices;
     }
-
     @PostMapping("/transfer")
     public ResponseEntity<?> verificationCard(@RequestBody  MoneyTransfer moneyTransferBody) {
-        //TODO поступил запрос от клиента на перевод
+        log.info("POST: /transfer -> {}",moneyTransferBody);
         return transferServices.verificationCard(moneyTransferBody);
     }
     @PostMapping("/confirmOperation")
     public ResponseEntity<?> confirmOperation(@RequestBody ConfirmOperation confirmOperationBody) {
-        //TODO отправка кода подтверждения
+        log.info("POST: /confirmOperation");
         return transferServices.confirmOperation(confirmOperationBody);
     }
     @ExceptionHandler

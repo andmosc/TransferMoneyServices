@@ -1,6 +1,6 @@
-package ru.andmosc.TransferMoney.dto;
+package ru.andmosc.transferMoney.dto;
 
-import ru.andmosc.TransferMoney.models.Card;
+import ru.andmosc.transferMoney.models.Card;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -30,7 +30,6 @@ public class CardsDB {
             throw new RuntimeException(e);
         }
         addCards(properties);
-        //TODO БД карт загружена
         confirmationCode = properties.getProperty("CODE");
     }
 
@@ -51,7 +50,4 @@ public class CardsDB {
         return listCards;
     }
 
-    public String getConfirmationCode() {
-        return confirmationCode;
-    }
 }

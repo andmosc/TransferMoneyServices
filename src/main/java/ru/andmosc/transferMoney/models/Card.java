@@ -1,4 +1,4 @@
-package ru.andmosc.TransferMoney.models;
+package ru.andmosc.transferMoney.models;
 
 public class Card {
     private final String cardNumber;

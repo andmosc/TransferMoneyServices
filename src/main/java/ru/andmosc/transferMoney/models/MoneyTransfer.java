@@ -1,4 +1,4 @@
-package ru.andmosc.TransferMoney.models;
+package ru.andmosc.transferMoney.models;
 
 public class MoneyTransfer {
     private String cardFromNumber;
@@ -54,5 +54,12 @@ public class MoneyTransfer {
 
     public void setAmount(Amount amount) {
         this.amount = amount;
+    }
+
+    @Override
+    public String toString() {
+        return "cardFromNumber: " + cardFromNumber +
+                ", cardToNumber: " + cardToNumber;
+
     }
 }

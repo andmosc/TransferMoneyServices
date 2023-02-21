@@ -1,4 +1,4 @@
-package ru.andmosc.TransferMoney.dto;
+package ru.andmosc.transferMoney.dto;
 
 public class ConfirmOperation {
     private String operationId;

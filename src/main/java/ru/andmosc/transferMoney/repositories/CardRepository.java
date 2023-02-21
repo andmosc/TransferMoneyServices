@@ -1,13 +1,14 @@
-package ru.andmosc.TransferMoney.repositories;
+package ru.andmosc.transferMoney.repositories;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
-import ru.andmosc.TransferMoney.dto.CardsDB;
-import ru.andmosc.TransferMoney.dto.ConfirmOperation;
-import ru.andmosc.TransferMoney.models.Card;
-import ru.andmosc.TransferMoney.models.MoneyTransfer;
-import ru.andmosc.TransferMoney.util.OperationsTransfer;
+import ru.andmosc.transferMoney.dto.CardsDB;
+import ru.andmosc.transferMoney.dto.ConfirmOperation;
+import ru.andmosc.transferMoney.models.Card;
+import ru.andmosc.transferMoney.models.MoneyTransfer;
+import ru.andmosc.transferMoney.util.OperationsTransfer;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -15,6 +16,7 @@ import java.util.Map;
 import java.util.Properties;
 
 @Repository
+@Slf4j
 public class CardRepository {
     private final static String PATH = "src/main/resources/DBCards.properties";
     private final Map<String, Card> listCards;
@@ -50,17 +52,17 @@ public class CardRepository {
     }
 
     public ResponseEntity<?> verificationCompleted(MoneyTransfer moneyTransferBody) {
-        return new ResponseEntity<>(operationsTransfer
-                .operationCompleted(moneyTransferBody.getAmount().getValue()), HttpStatus.OK);
+        String id = operationsTransfer.verificationCompleted(moneyTransferBody);
+        log.info("Номер транзакции перевода: {}", id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
     public boolean confirmOperation(ConfirmOperation confirmOperationBody) {
-        confirmOperationBody.setOperationId(String.valueOf(operationsTransfer.getId()));
+        confirmOperationBody.setOperationId(operationsTransfer.getId());
         return codeConfirm().equals(confirmOperationBody.getCode());
     }
 
     public ResponseEntity<?> confirmOperationCompleted(ConfirmOperation confirmOperationBody) {
-        //TODO код подтвержден
         return new ResponseEntity<>(confirmOperationBody.getCode(), HttpStatus.OK);
     }
 
@@ -69,8 +71,25 @@ public class CardRepository {
             properties.load(new FileInputStream(PATH));
             return properties.getProperty("CODE");
         } catch (IOException e) {
-            //TODO ошибка чтения файла
+            log.error("Ошибка загрузки файла: {}", PATH);
             throw new RuntimeException(e);
         }
+    }
+
+    public String operationByCard(ConfirmOperation confirmOperationBody) {
+        StringBuilder operation = new StringBuilder();
+        Map<String, MoneyTransfer> mapTransferCard = operationsTransfer.getMapTransferCards();
+        MoneyTransfer moneyTransfer = mapTransferCard.get(confirmOperationBody.getOperationId());
+        operation.append("Списание с карты: ")
+                .append(moneyTransfer.getCardFromNumber())
+                .append(", Карта зачисления: ")
+                .append(moneyTransfer.getCardToNumber())
+                .append(", Сумма: ")
+                .append(moneyTransfer.getAmount().getValue())
+                .append(" ")
+                .append(moneyTransfer.getAmount().getCurrency())
+                .append(", номер транзакции: ")
+                .append(confirmOperationBody.getOperationId());
+        return new String(operation);
     }
 }
