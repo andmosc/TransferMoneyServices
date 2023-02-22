@@ -50,4 +50,7 @@ public class CardsDB {
         return listCards;
     }
 
+    public String getConfirmationCode() {
+        return confirmationCode;
+    }
 }

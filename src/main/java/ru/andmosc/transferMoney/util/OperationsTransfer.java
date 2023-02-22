@@ -16,7 +16,6 @@ public class OperationsTransfer {
     private final AtomicInteger id;
     private final Map<String, MoneyTransfer> mapTransferCards;
     private final Properties properties;
-    private String lastID;
 
 
     public static synchronized OperationsTransfer getInstance() {
@@ -32,34 +31,33 @@ public class OperationsTransfer {
         id = new AtomicInteger();
     }
 
-    /**
-     * Получение ID , сохранеие в map
-     * @param moneyTransferBody
-     * @return
-     */
-    public synchronized String verificationCompleted(MoneyTransfer moneyTransferBody) {
+    public String saveVerification(MoneyTransfer moneyTransferBody) {
+        id.set(getIdOperation());
+        mapTransferCards.put(String.valueOf(id.get()), moneyTransferBody);
+        return String.valueOf(id.get());
+    }
 
+    public synchronized int getIdOperation() {
         try {
             FileInputStream in = new FileInputStream(PATH);
             properties.load(in);
             in.close();
-            id.set(Integer.parseInt(properties.getProperty("ID_OPERATION")));
-            lastID = String.valueOf(id.get());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return Integer.parseInt(properties.getProperty("ID_OPERATION"));
+    }
 
-            mapTransferCards.put(String.valueOf(id.get()), moneyTransferBody);
-
+    public synchronized int saveNewIdOperation() {
+        try {
             FileOutputStream out = new FileOutputStream(PATH);
-            properties.setProperty("ID_OPERATION", String.valueOf(id.getAndIncrement()));
+            properties.setProperty("ID_OPERATION", String.valueOf(id.incrementAndGet()));
             properties.store(out, null);
             out.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return String.valueOf(id.get());
-    }
-
-    public String getId() {
-        return lastID;
+        return id.get();
     }
 
     public Map<String, MoneyTransfer> getMapTransferCards() {

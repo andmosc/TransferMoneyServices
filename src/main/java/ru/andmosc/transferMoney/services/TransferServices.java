@@ -22,31 +22,32 @@ public class TransferServices {
     }
 
     public ResponseEntity<?> verificationCard(MoneyTransfer moneyTransferBody) {
-
+        int id = cardRepository.getOperationID();
         if (!cardRepository.verificationNumberCard(moneyTransferBody)) {
             log.error("Ошибка ввода номера карты: {}", moneyTransferBody.getCardFromNumber());
-            throw new ErrorVerificationCard("Ошибка ввода номера карты: " + moneyTransferBody.getCardFromNumber());
+            throw new ErrorVerificationCard("Ошибка ввода номера карты: " + moneyTransferBody.getCardFromNumber(),id);
         }
         if (!cardRepository.verificationCardCVV(moneyTransferBody)) {
             log.error("CVV указан не верно: {}", moneyTransferBody.getCardFromCVV());
-            throw new ErrorVerificationCard("CVV указан не верно: " + moneyTransferBody.getCardFromCVV());
+            throw new ErrorVerificationCard("CVV указан не верно: " + moneyTransferBody.getCardFromCVV(),id);
         }
         if (!cardRepository.verificationValidTill(moneyTransferBody)) {
             log.error("Ошибка ввода даты карты: {}", moneyTransferBody.getCardFromValidTill());
-            throw new ErrorVerificationCard("Ошибка ввода даты карты: " + moneyTransferBody.getCardFromValidTill());
+            throw new ErrorVerificationCard("Ошибка ввода даты карты: " + moneyTransferBody.getCardFromValidTill(),id);
         }
         if (!cardRepository.verificationAccount(moneyTransferBody)) {
-            log.error("Недостаточно средств на карте: {}", moneyTransferBody.getAmount().getValue());
-            throw new ErrorVerificationCard("Недостаточно средств на карте: " + moneyTransferBody.getAmount().getValue());
+            log.error("Недостаточно средств на карте: {}", moneyTransferBody.getAmount().value());
+            throw new ErrorVerificationCard("Недостаточно средств на карте: " + moneyTransferBody.getAmount().value(),id);
         }
-        log.info("Верификаия карты пройдена: {}", moneyTransferBody.getCardFromNumber());
-        return cardRepository.verificationCompleted(moneyTransferBody);
+        log.info("Верификаия карты пройдена, id операции: {}", id);
+        return cardRepository.saveVerification(moneyTransferBody);
     }
 
     public ResponseEntity<?> confirmOperation(ConfirmOperation confirmOperationBody) {
         if (!cardRepository.confirmOperation(confirmOperationBody)) {
             log.error("Код подтверждения не принят: {}", confirmOperationBody.getCode());
-            throw new ErrorConfirmOperation("Код подтверждения не принят: " + confirmOperationBody.getCode());
+            throw new ErrorConfirmOperation("Код подтверждения не принят: " + confirmOperationBody.getCode()
+                    ,Integer.parseInt(confirmOperationBody.getOperationId()));
         }
         log.info("{}",cardRepository.operationByCard(confirmOperationBody));
         return cardRepository.confirmOperationCompleted(confirmOperationBody);

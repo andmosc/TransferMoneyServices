@@ -10,25 +10,21 @@ import ru.andmosc.transferMoney.models.Card;
 import ru.andmosc.transferMoney.models.MoneyTransfer;
 import ru.andmosc.transferMoney.util.OperationsTransfer;
 
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.util.Collections;
 import java.util.Map;
-import java.util.Properties;
 
 @Repository
 @Slf4j
 public class CardRepository {
-    private final static String PATH = "src/main/resources/DBCards.properties";
     private final Map<String, Card> listCards;
     private final OperationsTransfer operationsTransfer;
     private Card card;
-    private final Properties properties;
+    private final CardsDB cardsDB;
 
     public CardRepository() {
-        CardsDB cardsDB = CardsDB.getInstance();
+        cardsDB = CardsDB.getInstance();
         operationsTransfer = OperationsTransfer.getInstance();
         listCards = cardsDB.getListCards();
-        properties = new Properties();
     }
 
     public boolean verificationNumberCard(MoneyTransfer moneyTransferBody) {
@@ -44,36 +40,25 @@ public class CardRepository {
     }
 
     public boolean verificationAccount(MoneyTransfer moneyTransferBody) {
-        return card.getAccount() >= moneyTransferBody.getAmount().getValue();
+        return card.getAccount() >= moneyTransferBody.getAmount().value();
     }
 
     public boolean verificationValidTill(MoneyTransfer moneyTransferBody) {
         return card.getCardValidTill().equals(moneyTransferBody.getCardFromValidTill());
     }
 
-    public ResponseEntity<?> verificationCompleted(MoneyTransfer moneyTransferBody) {
-        String id = operationsTransfer.verificationCompleted(moneyTransferBody);
-        log.info("Номер транзакции перевода: {}", id);
-        return new ResponseEntity<>(id, HttpStatus.OK);
+    public ResponseEntity<?> saveVerification(MoneyTransfer moneyTransferBody) {
+        String id = operationsTransfer.saveVerification(moneyTransferBody);
+        return new ResponseEntity<>(Collections.singletonMap("operationId", id), HttpStatus.OK);
     }
 
     public boolean confirmOperation(ConfirmOperation confirmOperationBody) {
-        confirmOperationBody.setOperationId(operationsTransfer.getId());
-        return codeConfirm().equals(confirmOperationBody.getCode());
+        return cardsDB.getConfirmationCode().equals(confirmOperationBody.getCode());
     }
 
     public ResponseEntity<?> confirmOperationCompleted(ConfirmOperation confirmOperationBody) {
-        return new ResponseEntity<>(confirmOperationBody.getCode(), HttpStatus.OK);
-    }
-
-    private String codeConfirm() {
-        try {
-            properties.load(new FileInputStream(PATH));
-            return properties.getProperty("CODE");
-        } catch (IOException e) {
-            log.error("Ошибка загрузки файла: {}", PATH);
-            throw new RuntimeException(e);
-        }
+        operationsTransfer.saveNewIdOperation();
+        return new ResponseEntity<>(Collections.singletonMap("operationId", confirmOperationBody.getOperationId()), HttpStatus.OK);
     }
 
     public String operationByCard(ConfirmOperation confirmOperationBody) {
@@ -85,11 +70,15 @@ public class CardRepository {
                 .append(", Карта зачисления: ")
                 .append(moneyTransfer.getCardToNumber())
                 .append(", Сумма: ")
-                .append(moneyTransfer.getAmount().getValue())
+                .append(moneyTransfer.getAmount().value())
                 .append(" ")
-                .append(moneyTransfer.getAmount().getCurrency())
-                .append(", номер транзакции: ")
+                .append(moneyTransfer.getAmount().currency())
+                .append(", id операции: ")
                 .append(confirmOperationBody.getOperationId());
         return new String(operation);
+    }
+
+    public int getOperationID() {
+        return operationsTransfer.getIdOperation();
     }
 }

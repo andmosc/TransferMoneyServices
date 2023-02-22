@@ -1,11 +1,9 @@
 package ru.andmosc.transferMoney.util;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 public class ErrorResponse {
     private static ErrorResponse instance;
-    private final AtomicInteger id = new AtomicInteger(1);
     private String message;
+    private int id;
 
     public static synchronized ErrorResponse getInstance() {
         if (instance == null) {
@@ -15,19 +13,18 @@ public class ErrorResponse {
     }
 
     public ErrorResponse() {
+    }
 
+    public void setMessage(String message, int id) {
+        this.message = message;
+        this.id = id;
     }
 
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
-        id.getAndIncrement();
-        this.message = message;
-    }
-
-    public int getId() {
-        return id.get();
+    public Integer getId() {
+        return id;
     }
 }

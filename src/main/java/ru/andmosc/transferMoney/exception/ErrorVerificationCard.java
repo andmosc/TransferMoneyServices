@@ -1,7 +1,13 @@
 package ru.andmosc.transferMoney.exception;
 
 public class ErrorVerificationCard extends RuntimeException {
-    public ErrorVerificationCard(String message) {
+    private final int id;
+    public ErrorVerificationCard(String message,int id) {
         super(message);
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 }
