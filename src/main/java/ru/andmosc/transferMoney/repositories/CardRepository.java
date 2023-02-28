@@ -40,7 +40,7 @@ public class CardRepository {
     }
 
     public boolean verificationAccount(MoneyTransfer moneyTransferBody) {
-        return card.getAccount() >= moneyTransferBody.getAmount().value();
+        return card.getAccount() >= moneyTransferBody.getAmount().getValue();
     }
 
     public boolean verificationValidTill(MoneyTransfer moneyTransferBody) {
@@ -70,9 +70,9 @@ public class CardRepository {
                 .append(", Карта зачисления: ")
                 .append(moneyTransfer.getCardToNumber())
                 .append(", Сумма: ")
-                .append(moneyTransfer.getAmount().value())
+                .append(moneyTransfer.getAmount().getValue())
                 .append(" ")
-                .append(moneyTransfer.getAmount().currency())
+                .append(moneyTransfer.getAmount().getValue())
                 .append(", id операции: ")
                 .append(confirmOperationBody.getOperationId());
         return new String(operation);

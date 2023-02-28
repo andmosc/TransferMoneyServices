@@ -1,5 +1,10 @@
 package ru.andmosc.transferMoney.util;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@NoArgsConstructor
 public class ErrorResponse {
     private static ErrorResponse instance;
     private String message;
@@ -12,19 +17,9 @@ public class ErrorResponse {
         return instance;
     }
 
-    public ErrorResponse() {
-    }
-
     public void setMessage(String message, int id) {
         this.message = message;
         this.id = id;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public Integer getId() {
-        return id;
-    }
 }

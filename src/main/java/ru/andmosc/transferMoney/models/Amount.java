@@ -1,4 +1,11 @@
 package ru.andmosc.transferMoney.models;
 
-public record Amount(Long value, String currency) {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
+public class Amount {
+    private final Long value;
+    private final String currency;
 }

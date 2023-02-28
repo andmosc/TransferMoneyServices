@@ -12,29 +12,29 @@ import ru.andmosc.transferMoney.dto.ConfirmOperation;
 import ru.andmosc.transferMoney.exception.ErrorConfirmOperation;
 import ru.andmosc.transferMoney.exception.ErrorVerificationCard;
 import ru.andmosc.transferMoney.models.MoneyTransfer;
-import ru.andmosc.transferMoney.services.TransferServices;
+import ru.andmosc.transferMoney.services.TransferServicesImpl;
 import ru.andmosc.transferMoney.util.ErrorResponse;
 
 @RestController
 @Slf4j
 public class TransferController {
-    private final TransferServices transferServices;
+    private final TransferServicesImpl transferServicesImpl;
 
     @Autowired
-    public TransferController(TransferServices transferServices) {
-        this.transferServices = transferServices;
+    public TransferController(TransferServicesImpl transferServicesImpl) {
+        this.transferServicesImpl = transferServicesImpl;
     }
 
     @PostMapping("/transfer")
     public ResponseEntity<?> verificationCard(@RequestBody MoneyTransfer moneyTransferBody) {
         log.info("POST: /transfer -> {}", moneyTransferBody);
-        return transferServices.verificationCard(moneyTransferBody);
+        return transferServicesImpl.verificationCard(moneyTransferBody);
     }
 
     @PostMapping("/confirmOperation")
     public ResponseEntity<?> confirmOperation(@RequestBody ConfirmOperation confirmOperationBody) {
         log.info("POST: /confirmOperation");
-        return transferServices.confirmOperation(confirmOperationBody);
+        return transferServicesImpl.confirmOperation(confirmOperationBody);
     }
 
     @ExceptionHandler
