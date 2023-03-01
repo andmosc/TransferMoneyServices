@@ -1,175 +1,146 @@
-11:06:52.942 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Starting TransferMoneyApplication using Java 17.0.5 with PID 15732 (D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney\target\classes started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-11:06:52.949 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - No active profile set, falling back to 1 default profile: "default"
-11:06:53.616 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-11:06:53.617 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
-11:06:53.683 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-11:06:53.966 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Started TransferMoneyApplication in 1.404 seconds (process running for 2.036)
-11:07:02.790 [http-nio-5500-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-11:07:02.894 [http-nio-5500-exec-2] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 2222222222222222
-11:07:02.894 [http-nio-5500-exec-2] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Верификаия карты пройдена, id операции: 1
-11:07:02.894 [http-nio-5500-exec-2] INFO  ru.andmosc.transferMoney.repositories.CardRepository - Номер транзакции перевода: 1
-11:07:02.920 [http-nio-5500-exec-4] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - POST: /confirmOperation
-11:07:02.920 [http-nio-5500-exec-4] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Списание с карты: 1111111111111111, Карта зачисления: 2222222222222222, Сумма: 10000 RUR, номер транзакции: 1
-11:07:43.925 [http-nio-5500-exec-5] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 2222222222222222
-11:07:43.929 [http-nio-5500-exec-5] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Верификаия карты пройдена, id операции: 2
-11:07:43.930 [http-nio-5500-exec-5] INFO  ru.andmosc.transferMoney.repositories.CardRepository - Номер транзакции перевода: 2
-11:07:43.937 [http-nio-5500-exec-6] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - POST: /confirmOperation
-11:07:43.937 [http-nio-5500-exec-6] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Списание с карты: 1111111111111111, Карта зачисления: 2222222222222222, Сумма: 1500 RUR, номер транзакции: 2
-11:09:14.073 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Starting TransferMoneyApplication using Java 17.0.5 with PID 9016 (D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney\target\classes started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-11:09:14.080 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - No active profile set, falling back to 1 default profile: "default"
-11:09:14.743 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-11:09:14.743 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
-11:09:14.809 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-11:09:15.091 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Started TransferMoneyApplication in 1.402 seconds (process running for 2.041)
-11:09:28.208 [http-nio-5500-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-11:09:28.303 [http-nio-5500-exec-1] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 2222222222222222
-11:09:28.303 [http-nio-5500-exec-1] ERROR ru.andmosc.transferMoney.services.TransferServicesImpl - CVV указан не верно: 112
-11:10:39.832 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Starting TransferMoneyApplication using Java 17.0.5 with PID 2228 (D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney\target\classes started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-11:10:39.840 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - No active profile set, falling back to 1 default profile: "default"
-11:10:40.548 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-11:10:40.548 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
-11:10:40.620 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-11:10:41.188 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Started TransferMoneyApplication in 1.779 seconds (process running for 2.525)
-11:10:45.702 [http-nio-5500-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-11:10:45.888 [http-nio-5500-exec-1] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 2222222222222222
-11:11:35.489 [http-nio-5500-exec-1] ERROR ru.andmosc.transferMoney.services.TransferServicesImpl - CVV указан не верно: 112
-11:12:33.296 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Starting TransferMoneyApplication using Java 17.0.5 with PID 17760 (D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney\target\classes started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-11:12:33.304 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - No active profile set, falling back to 1 default profile: "default"
-11:12:33.957 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-11:12:33.958 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
-11:12:34.026 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-11:12:34.308 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Started TransferMoneyApplication in 1.401 seconds (process running for 2.041)
-11:12:35.919 [http-nio-5500-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-11:12:36.010 [http-nio-5500-exec-1] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 2222222222222222
-11:12:36.011 [http-nio-5500-exec-1] ERROR ru.andmosc.transferMoney.services.TransferServicesImpl - CVV указан не верно: 112
-11:19:50.670 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Starting TransferMoneyApplication using Java 17.0.5 with PID 11520 (D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney\target\classes started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-11:19:50.677 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - No active profile set, falling back to 1 default profile: "default"
-11:19:51.331 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-11:19:51.331 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
-11:19:51.398 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-11:19:51.677 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Started TransferMoneyApplication in 1.388 seconds (process running for 2.012)
-11:19:57.022 [http-nio-5500-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-11:19:57.113 [http-nio-5500-exec-1] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 2222222222222222
-11:19:57.114 [http-nio-5500-exec-1] ERROR ru.andmosc.transferMoney.services.TransferServicesImpl - CVV указан не верно: 112
-11:39:24.405 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Starting TransferMoneyApplication using Java 17.0.5 with PID 18412 (D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney\target\classes started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-11:39:24.413 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - No active profile set, falling back to 1 default profile: "default"
-11:39:25.148 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-11:39:25.148 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
-11:39:25.221 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-11:39:25.946 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Started TransferMoneyApplication in 2.01 seconds (process running for 2.959)
-11:41:51.270 [http-nio-5500-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-11:41:51.478 [http-nio-5500-exec-2] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 2222222222222222
-11:41:51.481 [http-nio-5500-exec-2] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Верификаия карты пройдена, id операции: 3
-11:41:51.523 [http-nio-5500-exec-4] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /confirmOperation
-11:42:12.251 [http-nio-5500-exec-4] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Списание с карты: 1111111111111111, Карта зачисления: 2222222222222222, Сумма: 1000 RUR, номер транзакции: 3
-11:45:08.374 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Starting TransferMoneyApplication using Java 17.0.5 with PID 10956 (D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney\target\classes started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-11:45:08.381 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - No active profile set, falling back to 1 default profile: "default"
-11:45:09.038 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-11:45:09.039 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
-11:45:09.110 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-11:45:09.402 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Started TransferMoneyApplication in 1.408 seconds (process running for 2.028)
-11:45:21.574 [http-nio-5500-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-11:45:21.665 [http-nio-5500-exec-1] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 2222222222222222
-11:45:21.665 [http-nio-5500-exec-1] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Верификаия карты пройдена, id операции: 4
-11:45:21.688 [http-nio-5500-exec-2] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /confirmOperation
-11:45:21.689 [http-nio-5500-exec-2] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Списание с карты: 1111111111111111, Карта зачисления: 2222222222222222, Сумма: 1000 RUR, номер транзакции: 4
-13:25:32.696 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 18.0.1.1 with PID 2052 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-13:25:32.705 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
-13:25:33.856 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 1.543 seconds (process running for 2.69)
-05:16:19.867 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Starting TransferMoneyApplication using Java 17.0.5 with PID 15264 (D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney\target\classes started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-05:16:19.874 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - No active profile set, falling back to 1 default profile: "default"
-05:16:20.701 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-05:16:20.702 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
-05:16:20.804 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-05:16:21.127 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Started TransferMoneyApplication in 1.748 seconds (process running for 3.019)
-06:14:42.720 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Starting TransferMoneyApplication using Java 17.0.5 with PID 17052 (D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney\target\classes started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-06:14:42.728 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - No active profile set, falling back to 1 default profile: "default"
-06:14:43.399 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-06:14:43.399 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
-06:14:43.485 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-06:14:43.771 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Started TransferMoneyApplication in 1.42 seconds (process running for 2.317)
-06:15:04.755 [http-nio-5500-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-06:15:04.868 [http-nio-5500-exec-2] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 2222222222222222
-06:15:04.889 [http-nio-5500-exec-2] ERROR ru.andmosc.transferMoney.services.TransferServicesImpl - CVV указан не верно: 011
-06:15:08.937 [http-nio-5500-exec-3] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 2222222222222222
-06:15:08.937 [http-nio-5500-exec-3] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Верификаия карты пройдена, id операции: 5
-06:15:08.955 [http-nio-5500-exec-5] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /confirmOperation
-06:15:08.955 [http-nio-5500-exec-5] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Списание с карты: 1111111111111111, Карта зачисления: 2222222222222222, Сумма: 1000 RUR, id операции: 5
-06:17:29.571 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Starting TransferMoneyApplication using Java 17.0.5 with PID 16632 (D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney\target\classes started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-06:17:29.578 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - No active profile set, falling back to 1 default profile: "default"
-06:17:30.245 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-06:17:30.245 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
-06:17:30.312 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-06:17:30.594 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Started TransferMoneyApplication in 1.42 seconds (process running for 2.087)
-06:44:23.382 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Starting TransferMoneyApplication using Java 17.0.5 with PID 4680 (D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney\target\classes started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-06:44:23.389 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - No active profile set, falling back to 1 default profile: "default"
-06:44:24.071 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-06:44:24.072 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
-06:44:24.153 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-06:44:24.436 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Started TransferMoneyApplication in 1.46 seconds (process running for 2.301)
-06:44:33.243 [http-nio-5500-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-06:44:33.336 [http-nio-5500-exec-1] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 2222222222222222
-06:44:33.337 [http-nio-5500-exec-1] ERROR ru.andmosc.transferMoney.services.TransferServicesImpl - CVV указан не верно: 112
-06:57:39.440 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Starting TransferMoneyApplication using Java 17.0.5 with PID 22872 (D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney\target\classes started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-06:57:39.448 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - No active profile set, falling back to 1 default profile: "default"
-06:57:40.178 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-06:57:40.178 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
-06:57:40.247 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-06:57:40.547 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Started TransferMoneyApplication in 1.523 seconds (process running for 2.197)
-06:57:44.940 [http-nio-5500-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-06:57:45.038 [http-nio-5500-exec-2] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 2222222222222222
-06:57:45.038 [http-nio-5500-exec-2] ERROR ru.andmosc.transferMoney.services.TransferServicesImpl - CVV указан не верно: 112
-06:57:47.003 [http-nio-5500-exec-3] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 2222222222222222
-06:57:47.004 [http-nio-5500-exec-3] ERROR ru.andmosc.transferMoney.services.TransferServicesImpl - CVV указан не верно: 112
-06:57:52.015 [http-nio-5500-exec-4] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 2222222222222222
-06:57:52.016 [http-nio-5500-exec-4] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Верификаия карты пройдена, id операции: 6
-06:57:52.030 [http-nio-5500-exec-6] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /confirmOperation
-06:57:52.030 [http-nio-5500-exec-6] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Списание с карты: 1111111111111111, Карта зачисления: 2222222222222222, Сумма: 1000 1000, id операции: 6
-08:56:57.629 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Starting TransferMoneyApplication using Java 17.0.5 with PID 22240 (D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney\target\classes started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-08:56:57.636 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - No active profile set, falling back to 1 default profile: "default"
-08:56:58.287 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-08:56:58.287 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
-08:56:58.354 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-08:56:58.640 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Started TransferMoneyApplication in 1.403 seconds (process running for 2.078)
-08:59:30.011 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 18.0.1.1 with PID 3148 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-08:59:30.020 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
-08:59:31.254 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 1.623 seconds (process running for 2.849)
-09:13:21.699 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Starting TransferMoneyApplication using Java 17.0.5 with PID 18368 (D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney\target\classes started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-09:13:21.708 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - No active profile set, falling back to 1 default profile: "default"
-09:13:22.392 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-09:13:22.393 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
-09:13:22.460 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-09:13:22.740 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Started TransferMoneyApplication in 1.433 seconds (process running for 2.091)
-09:16:39.362 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Starting TransferMoneyApplication using Java 17.0.5 with PID 9864 (D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney\target\classes started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-09:16:39.369 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - No active profile set, falling back to 1 default profile: "default"
-09:16:40.080 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-09:16:40.080 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
-09:16:40.148 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-09:16:40.430 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Started TransferMoneyApplication in 1.455 seconds (process running for 2.103)
-09:18:13.545 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 with PID 11824 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-09:18:13.555 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
-09:18:14.699 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 1.517 seconds (process running for 2.561)
-09:29:32.253 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Starting TransferMoneyApplication using Java 17.0.5 on DESKTOP-96RPMEQ with PID 1684 (D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney\target\classes started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-09:29:32.261 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - No active profile set, falling back to 1 default profile: "default"
-09:29:33.105 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-09:29:33.106 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
-09:29:33.196 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-09:29:33.515 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Started TransferMoneyApplication in 1.726 seconds (JVM running for 2.507)
-09:30:33.279 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 16304 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-09:30:33.293 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
-09:30:34.766 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 1.839 seconds (JVM running for 2.978)
-09:35:59.045 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 21880 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-09:35:59.056 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
-09:36:00.518 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 1.845 seconds (JVM running for 2.872)
-09:37:06.277 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 6488 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-09:37:06.288 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
-09:37:07.716 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 1.788 seconds (JVM running for 2.857)
-09:45:49.372 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 2664 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-09:45:49.382 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
-09:45:51.205 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 2.205 seconds (JVM running for 3.335)
-09:47:00.099 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Starting TransferMoneyApplication using Java 17.0.5 on DESKTOP-96RPMEQ with PID 13292 (D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney\target\classes started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
-09:47:00.106 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - No active profile set, falling back to 1 default profile: "default"
-09:47:00.800 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-09:47:00.800 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
-09:47:00.877 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-09:47:01.149 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Started TransferMoneyApplication in 1.403 seconds (JVM running for 2.174)
+23:11:16.114 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 6784 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+23:11:16.131 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+23:11:18.361 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+23:11:18.362 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+23:11:18.585 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+23:11:19.577 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 4.35 seconds (JVM running for 12.289)
+23:18:39.059 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 316 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+23:18:39.068 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+23:18:40.072 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+23:18:40.073 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+23:18:40.193 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+23:18:40.766 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 2.052 seconds (JVM running for 9.337)
+23:31:09.796 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Starting TransferMoneyApplication using Java 17.0.5 on DESKTOP-96RPMEQ with PID 3508 (D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney\target\classes started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+23:31:09.804 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - No active profile set, falling back to 1 default profile: "default"
+23:31:10.563 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+23:31:10.564 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+23:31:10.669 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+23:31:11.002 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Started TransferMoneyApplication in 1.593 seconds (JVM running for 2.398)
+23:31:37.176 [http-nio-5500-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+23:31:37.265 [http-nio-5500-exec-1] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 2222222222222222
+23:31:37.266 [http-nio-5500-exec-1] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Верификаия карты пройдена, id операции: 1
+23:31:37.296 [http-nio-5500-exec-2] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /confirmOperation
+23:31:37.296 [http-nio-5500-exec-2] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Списание с карты: 1111111111111111, Карта зачисления: 2222222222222222, Сумма: 1000 1000, id операции: 1
+23:31:50.554 [http-nio-5500-exec-3] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 2222222222222222
+23:31:50.559 [http-nio-5500-exec-3] ERROR ru.andmosc.transferMoney.services.TransferServicesImpl - CVV указан не верно: 112
+23:31:56.502 [http-nio-5500-exec-4] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 2222222222222222
+23:31:56.503 [http-nio-5500-exec-4] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Верификаия карты пройдена, id операции: 2
+23:31:56.511 [http-nio-5500-exec-5] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /confirmOperation
+23:31:56.511 [http-nio-5500-exec-5] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Списание с карты: 1111111111111111, Карта зачисления: 2222222222222222, Сумма: 1000 1000, id операции: 2
+23:32:09.042 [http-nio-5500-exec-6] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /transfer -> cardFromNumber: 3333333333333333, cardToNumber: 1111111111111111
+23:32:09.047 [http-nio-5500-exec-6] ERROR ru.andmosc.transferMoney.services.TransferServicesImpl - Ошибка ввода номера карты: 3333333333333333
+23:32:12.030 [http-nio-5500-exec-7] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /transfer -> cardFromNumber: 3333333333333333, cardToNumber: 1111111111111111
+23:32:12.030 [http-nio-5500-exec-7] ERROR ru.andmosc.transferMoney.services.TransferServicesImpl - Ошибка ввода номера карты: 3333333333333333
+23:32:15.860 [http-nio-5500-exec-8] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 1111111111111111
+23:32:15.860 [http-nio-5500-exec-8] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Верификаия карты пройдена, id операции: 3
+23:32:15.868 [http-nio-5500-exec-9] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /confirmOperation
+23:32:15.868 [http-nio-5500-exec-9] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Списание с карты: 1111111111111111, Карта зачисления: 1111111111111111, Сумма: 1000 1000, id операции: 3
+23:32:52.053 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Starting TransferMoneyApplication using Java 17.0.5 on DESKTOP-96RPMEQ with PID 13372 (D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney\target\classes started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+23:32:52.061 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - No active profile set, falling back to 1 default profile: "default"
+23:32:52.801 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+23:32:52.802 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+23:32:52.882 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+23:32:53.631 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplication - Started TransferMoneyApplication in 2.014 seconds (JVM running for 2.802)
+23:33:11.414 [http-nio-5500-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+23:33:11.591 [http-nio-5500-exec-1] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 1111111111111111
+23:33:11.592 [http-nio-5500-exec-1] ERROR ru.andmosc.transferMoney.services.TransferServicesImpl - Ошибка ввода даты карты: 10/24
+23:33:22.000 [http-nio-5500-exec-2] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /transfer -> cardFromNumber: 1111111111111111, cardToNumber: 1111111111111111
+23:33:22.000 [http-nio-5500-exec-2] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Верификаия карты пройдена, id операции: 4
+23:33:38.560 [http-nio-5500-exec-3] INFO  ru.andmosc.transferMoney.controllers.TransferController - POST: /confirmOperation
+23:33:38.561 [http-nio-5500-exec-3] INFO  ru.andmosc.transferMoney.services.TransferServicesImpl - Списание с карты: 1111111111111111, Карта зачисления: 1111111111111111, Сумма: 1000 1000, id операции: 4
+23:34:43.701 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 21520 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+23:34:43.711 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+23:34:44.714 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+23:34:44.714 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+23:34:44.826 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+23:34:45.447 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 2.129 seconds (JVM running for 9.321)
+23:35:20.616 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 6420 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+23:35:20.626 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+23:35:21.609 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+23:35:21.610 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+23:35:21.724 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+23:35:22.320 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 2.034 seconds (JVM running for 9.255)
+23:36:24.199 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 14876 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+23:36:24.210 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+23:36:25.205 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+23:36:25.206 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+23:36:25.335 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+23:36:25.966 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 2.158 seconds (JVM running for 9.59)
+23:37:03.083 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 14524 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+23:37:03.092 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+23:37:04.136 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+23:37:04.137 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+23:37:04.256 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+23:37:04.843 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 2.116 seconds (JVM running for 9.818)
+23:37:45.819 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 4528 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+23:37:45.829 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+23:37:46.821 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+23:37:46.822 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+23:37:46.938 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+23:37:47.538 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 2.104 seconds (JVM running for 9.736)
+00:17:32.108 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 19780 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+00:17:32.122 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+00:17:34.153 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+00:17:34.157 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+00:17:34.582 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+00:17:35.889 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 4.245 seconds (JVM running for 21.177)
+00:23:42.429 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 16736 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+00:23:42.455 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+00:23:44.157 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+00:23:44.157 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+00:23:44.337 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+00:23:45.378 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 3.755 seconds (JVM running for 19.131)
+00:26:13.365 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 3772 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+00:26:13.385 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+00:26:15.250 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+00:26:15.251 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+00:26:15.469 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+00:26:16.510 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 3.918 seconds (JVM running for 18.835)
+00:32:02.323 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 22124 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+00:32:02.344 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+00:32:04.097 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+00:32:04.097 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+00:32:04.280 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+00:32:05.283 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 3.648 seconds (JVM running for 21.063)
+00:33:46.988 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 24076 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+00:33:47.000 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+00:33:48.143 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+00:33:48.143 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+00:33:48.274 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+00:33:49.026 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 2.458 seconds (JVM running for 17.094)
+00:34:28.905 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 11812 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+00:34:28.933 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+00:34:30.094 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+00:34:30.094 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+00:34:30.249 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+00:34:30.924 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 2.483 seconds (JVM running for 17.84)
+00:35:23.455 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 3632 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+00:35:23.465 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+00:35:24.637 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+00:35:24.637 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+00:35:24.777 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+00:35:25.500 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 2.461 seconds (JVM running for 17.839)
+00:40:08.362 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 21664 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+00:40:08.382 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+00:40:10.350 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+00:40:10.350 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+00:40:10.576 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+00:40:11.620 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 3.958 seconds (JVM running for 22.777)
+00:46:04.692 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 11632 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+00:46:04.717 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+00:46:06.622 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+00:46:06.622 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+00:46:06.833 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+00:46:07.950 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 4.021 seconds (JVM running for 28.427)
+00:47:59.173 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 11612 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+00:47:59.183 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+00:48:00.277 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+00:48:00.278 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+00:48:00.425 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+00:48:01.081 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 2.431 seconds (JVM running for 24.446)
+00:48:38.129 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Starting TransferMoneyApplicationTests using Java 17.0.5 on DESKTOP-96RPMEQ with PID 6328 (started by and in D:\dev\Maven\netology\16_Курсовой проект(перевод денег)\TransferMoney)
+00:48:38.142 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - No active profile set, falling back to 1 default profile: "default"
+00:48:39.384 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+00:48:39.385 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+00:48:39.515 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+00:48:40.169 [main] INFO  ru.andmosc.transferMoney.TransferMoneyApplicationTests - Started TransferMoneyApplicationTests in 2.483 seconds (JVM running for 28.042)

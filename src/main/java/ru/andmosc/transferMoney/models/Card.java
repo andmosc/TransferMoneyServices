@@ -11,5 +11,4 @@ public class Card {
     private final String cardCVV;
     private final Long  account;
     private final String currency;
-
 }
