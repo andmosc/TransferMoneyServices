@@ -20,7 +20,7 @@ public class OperationsTransfer {
 
     public static synchronized OperationsTransfer getInstance() {
         if (instance == null) {
-            return new OperationsTransfer();
+            instance = new OperationsTransfer();
         }
         return instance;
     }
@@ -31,10 +31,8 @@ public class OperationsTransfer {
         id = new AtomicInteger();
     }
 
-    public String saveVerification(MoneyTransfer moneyTransferBody) {
-        id.set(getIdOperation());
-        mapTransferCards.put(String.valueOf(id.get()), moneyTransferBody);
-        return String.valueOf(id.get());
+    public void saveVerification(MoneyTransfer moneyTransferBody,int idOperation) {
+        mapTransferCards.put(String.valueOf(idOperation), moneyTransferBody);
     }
 
     public synchronized int getIdOperation() {
@@ -48,7 +46,8 @@ public class OperationsTransfer {
         return Integer.parseInt(properties.getProperty("ID_OPERATION"));
     }
 
-    public synchronized int saveNewIdOperation() {
+    public synchronized int saveNewIdOperation(int idOperation) {
+        id.set(idOperation);
         try {
             FileOutputStream out = new FileOutputStream(PATH);
             properties.setProperty("ID_OPERATION", String.valueOf(id.incrementAndGet()));

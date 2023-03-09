@@ -47,9 +47,9 @@ public class CardRepository {
         return card.getCardValidTill().equals(moneyTransferBody.getCardFromValidTill());
     }
 
-    public ResponseEntity<?> saveVerification(MoneyTransfer moneyTransferBody) {
-        String id = operationsTransfer.saveVerification(moneyTransferBody);
-        return new ResponseEntity<>(Collections.singletonMap("operationId", id), HttpStatus.OK);
+    public ResponseEntity<?> saveVerification(MoneyTransfer moneyTransferBody,int idOperation) {
+        operationsTransfer.saveVerification(moneyTransferBody,idOperation);
+        return new ResponseEntity<>(Collections.singletonMap("operationId", idOperation), HttpStatus.OK);
     }
 
     public boolean confirmOperation(ConfirmOperation confirmOperationBody) {
@@ -57,7 +57,7 @@ public class CardRepository {
     }
 
     public ResponseEntity<?> confirmOperationCompleted(ConfirmOperation confirmOperationBody) {
-        operationsTransfer.saveNewIdOperation();
+        operationsTransfer.saveNewIdOperation(Integer.parseInt(confirmOperationBody.getOperationId()));
         return new ResponseEntity<>(Collections.singletonMap("operationId", confirmOperationBody.getOperationId()), HttpStatus.OK);
     }
 
