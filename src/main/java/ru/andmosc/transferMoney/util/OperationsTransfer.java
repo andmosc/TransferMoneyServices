@@ -43,10 +43,12 @@ public class OperationsTransfer {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return Integer.parseInt(properties.getProperty("ID_OPERATION"));
+        int idOperation = Integer.parseInt(properties.getProperty("ID_OPERATION"));
+        saveNewIdOperation(idOperation);
+        return idOperation;
     }
 
-    public synchronized int saveNewIdOperation(int idOperation) {
+    public int saveNewIdOperation(int idOperation) {
         id.set(idOperation);
         try {
             FileOutputStream out = new FileOutputStream(PATH);

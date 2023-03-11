@@ -57,7 +57,6 @@ public class CardRepository {
     }
 
     public ResponseEntity<?> confirmOperationCompleted(ConfirmOperation confirmOperationBody) {
-        operationsTransfer.saveNewIdOperation(Integer.parseInt(confirmOperationBody.getOperationId()));
         return new ResponseEntity<>(Collections.singletonMap("operationId", confirmOperationBody.getOperationId()), HttpStatus.OK);
     }
 
