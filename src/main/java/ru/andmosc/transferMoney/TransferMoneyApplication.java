@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-public class TransferMoneyApplication {
+public class  TransferMoneyApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(TransferMoneyApplication.class, args);
