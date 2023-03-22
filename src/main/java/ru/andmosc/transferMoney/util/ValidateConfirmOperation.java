@@ -15,7 +15,7 @@ public class ValidateConfirmOperation {
     private ConfirmOperation confirmOperationBody;
 
     public void validateOperation() {
-        if (!cardRepository.confirmOperation(confirmOperationBody)) {
+        if (!cardRepository.confirmOperationCode(confirmOperationBody)) {
             log.error("Код подтверждения не принят: {}", confirmOperationBody.getCode());
             throw new ErrorConfirmOperation("Код подтверждения не принят: " + confirmOperationBody.getCode()
                     , Long.parseLong(confirmOperationBody.getOperationId()));

@@ -1,47 +1,40 @@
-package ru.andmosc.transferMoney.controllers;
+package ru.andmosc.transferMoney.controller;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import ru.andmosc.transferMoney.dto.ConfirmOperation;
-import ru.andmosc.transferMoney.models.Amount;
-import ru.andmosc.transferMoney.models.MoneyTransfer;
+import ru.andmosc.transferMoney.domain.Amount;
+import ru.andmosc.transferMoney.domain.ConfirmOperation;
+import ru.andmosc.transferMoney.domain.Transfer;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(TransferController.class)
+@AutoConfigureMockMvc
+@SpringBootTest
 public class TestTransferController {
     @Autowired
     private MockMvc mockMvc;
-
     @Autowired
     private ObjectMapper objectMapper;
-
     @MockBean
-    private TransferController transferController;
+    TransferController transferController;
 
 
     @Test
-    public void testPostRequestTransfer_returnIsOK() throws Exception {
-        MoneyTransfer moneyTransferBody = new MoneyTransfer("cardFromNumber", "cardToNumber",
-                "cardFromCVV", "cardFromValidTill", new Amount(0L, "currency"));
+    public void postRequestTransfer_returnIsOK() throws Exception {
 
- /*       Mockito.when(transferServices.verificationCard(moneyTransferBody))
-                .thenReturn(ResponseEntity.status(HttpStatus.OK).body(Collections.singletonMap("OperationID", 1)));
-
-        ResponseEntity<?> responseEntity = transferServices.verificationCard(moneyTransferBody);
-*/
+        Transfer moneyTransferBody = new Transfer("11", "11",
+                "11", "11", new Amount(10L, "RUR"));
 
         mockMvc.perform(
-
                         post("/transfer")
                                 .content(objectMapper.writeValueAsString(moneyTransferBody))
                                 .contentType(MediaType.APPLICATION_JSON)
@@ -52,9 +45,8 @@ public class TestTransferController {
 
     @Test
     public void testPostRequestConfirmOperation_returnIsOK() throws Exception {
-        ConfirmOperation confirmOperation = new ConfirmOperation("1", "code");
+        ConfirmOperation confirmOperation = new ConfirmOperation("19", "0000");
         mockMvc.perform(
-
                         post("/confirmOperation")
                                 .content(objectMapper.writeValueAsString(confirmOperation))
                                 .contentType(MediaType.APPLICATION_JSON)

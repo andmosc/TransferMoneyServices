@@ -1,9 +1,9 @@
 package ru.andmosc.transferMoney.domain;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 @AllArgsConstructor
 public class Card {
     private final String cardNumber;

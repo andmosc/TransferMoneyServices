@@ -47,7 +47,7 @@ public class CardRepository {
         operationsTransferId.saveTransfer(moneyTransferBody,idOperation);
     }
 
-    public boolean confirmOperation(ConfirmOperation confirmOperationBody) {
+    public boolean confirmOperationCode(ConfirmOperation confirmOperationBody) {
         return databaseCards.getConfirmationCode().equals(confirmOperationBody.getCode());
     }
 

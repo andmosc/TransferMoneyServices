@@ -1,91 +1,60 @@
 package ru.andmosc.transferMoney.services;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
-import ru.andmosc.transferMoney.dto.ConfirmOperation;
-import ru.andmosc.transferMoney.exception.ErrorConfirmOperation;
-import ru.andmosc.transferMoney.exception.ErrorVerificationCard;
-import ru.andmosc.transferMoney.models.Amount;
-import ru.andmosc.transferMoney.models.MoneyTransfer;
-import ru.andmosc.transferMoney.repositories.CardRepository;
+import org.mockito.junit.jupiter.MockitoExtension;
+import ru.andmosc.transferMoney.domain.Card;
+import ru.andmosc.transferMoney.domain.ConfirmOperation;
+import ru.andmosc.transferMoney.domain.Transfer;
+import ru.andmosc.transferMoney.repository.CardRepository;
+import ru.andmosc.transferMoney.util.ValidateCard;
+import ru.andmosc.transferMoney.util.ValidateConfirmOperation;
+
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@ExtendWith(MockitoExtension.class)
 public class TestServices {
-
-    private final CardRepository cardRepository = Mockito.mock(CardRepository.class);
-    private MoneyTransfer moneyTransferBody;
+    @Mock
+    private CardRepository cardRepository;
+    @InjectMocks
     private TransferServicesImpl transferServices;
 
-    private static final int ID = 1;
+    @Test
+    public void verificationCard_shouldCallValidateCard() {
+        final Transfer moneyTransferBody = Mockito.mock(Transfer.class);
+        final ValidateCard validateCard = Mockito.mock(ValidateCard.class);
+        final Card card = Mockito.mock(Card.class);
+        final long id = 1L;
+        Mockito.when(cardRepository.getOperationID()).thenReturn(1L);
+        Mockito.when(cardRepository.verificationNumberCard(moneyTransferBody)).thenReturn(Optional.of(card));
+        Mockito.when(cardRepository.verificationCardCVV(moneyTransferBody, card)).thenReturn(true);
+        Mockito.when(cardRepository.verificationAccount(moneyTransferBody, card)).thenReturn(true);
+        Mockito.when(cardRepository.verificationValidTill(moneyTransferBody, card)).thenReturn(true);
 
-    @BeforeEach
-    void setUp() {
-        moneyTransferBody = new MoneyTransfer("cardFromNumber", "cardToNumber",
-                "cardFromCVV", "cardFromValidTill", new Amount(0L, "currency"));
-        transferServices = new TransferServicesImpl(cardRepository);
+        validateCard.validateCardDate();
+        long idActual = transferServices.transferMoney(moneyTransferBody);
+
+        assertEquals(id, idActual);
+        Mockito.verify(validateCard).validateCardDate();
     }
 
     @Test
-    public void testVerificationCard_ErrorNumberCard() {
-        final String event = "Ошибка ввода номера карты: cardFromNumber";
+    public void transferCard_shouldCallValidateConfirmOperation() {
+        final ConfirmOperation confirmOperation = Mockito.mock(ConfirmOperation.class);
+        final ValidateConfirmOperation validateConfirmOperation = Mockito.mock(ValidateConfirmOperation.class);
+        final long id = 1L;
+        Mockito.when(cardRepository.confirmOperationCode(confirmOperation)).thenReturn(true);
+        Mockito.when(cardRepository.executeConfirmOperation(confirmOperation)).thenReturn(1L);
 
-        Mockito.when(cardRepository.verificationNumberCard(moneyTransferBody)).thenReturn(false);
+        long idActual = transferServices.confirmOperation(confirmOperation);
+        validateConfirmOperation.validateOperation();
 
-        Exception actual = assertThrows(ErrorVerificationCard.class, () -> transferServices.verificationCard(moneyTransferBody));
-
-        assertEquals(event, actual.getMessage());
-        Mockito.verify(cardRepository).verificationNumberCard(moneyTransferBody);
-    }
-    @Test
-    public void testVerificationCard_ErrorCardCVV() {
-        final String event = "CVV указан не верно: cardFromCVV";
-        Mockito.when(cardRepository.verificationNumberCard(moneyTransferBody)).thenReturn(true);
-        Mockito.when(cardRepository.verificationCardCVV(moneyTransferBody)).thenReturn(false);
-
-        Exception actual = assertThrows(ErrorVerificationCard.class, () -> transferServices.verificationCard(moneyTransferBody));
-
-        assertEquals(event, actual.getMessage());
-        Mockito.verify(cardRepository).verificationCardCVV(moneyTransferBody);
-    }
-    @Test
-    public void testVerificationCard_ErrorValidTill() {
-        final String event = "Ошибка ввода даты карты: cardFromValidTill";
-        Mockito.when(cardRepository.verificationNumberCard(moneyTransferBody)).thenReturn(true);
-        Mockito.when(cardRepository.verificationCardCVV(moneyTransferBody)).thenReturn(true);
-        Mockito.when(cardRepository.verificationValidTill(moneyTransferBody)).thenReturn(false);
-
-        Exception actual = assertThrows(ErrorVerificationCard.class, () -> transferServices.verificationCard(moneyTransferBody));
-
-        assertEquals(event, actual.getMessage());
-        Mockito.verify(cardRepository).verificationValidTill(moneyTransferBody);
-    }
-    @Test
-    public void testVerificationCard_ErrorAccount() {
-        final String event = "Недостаточно средств на карте: 0";
-        Mockito.when(cardRepository.verificationNumberCard(moneyTransferBody)).thenReturn(true);
-        Mockito.when(cardRepository.verificationCardCVV(moneyTransferBody)).thenReturn(true);
-        Mockito.when(cardRepository.verificationValidTill(moneyTransferBody)).thenReturn(true);
-        Mockito.when(cardRepository.verificationAccount(moneyTransferBody)).thenReturn(false);
-
-        Exception actual = assertThrows(ErrorVerificationCard.class, () -> transferServices.verificationCard(moneyTransferBody));
-
-        assertEquals(event, actual.getMessage());
-        Mockito.verify(cardRepository).verificationAccount(moneyTransferBody);
-    }
-
-    @Test
-    public void testConfirmOperation_ErrorConfirmOperation() {
-        final String event = "Код подтверждения не принят: 1111";
-        ConfirmOperation confirmOperation = new ConfirmOperation("1","1111");
-        Mockito.when(cardRepository.confirmOperation(confirmOperation)).thenReturn(false);
-
-
-        Exception actual = assertThrows(ErrorConfirmOperation.class, () -> transferServices.confirmOperation(confirmOperation));
-
-        assertEquals(event, actual.getMessage());
-        Mockito.verify(cardRepository).confirmOperation(confirmOperation);
+        assertEquals(id, idActual);
+        Mockito.verify(validateConfirmOperation).validateOperation();
     }
 }
