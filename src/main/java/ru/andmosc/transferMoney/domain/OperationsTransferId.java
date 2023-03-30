@@ -1,20 +1,20 @@
-package ru.andmosc.transferMoney.dao;
+package ru.andmosc.transferMoney.domain;
 
 import lombok.Getter;
-import ru.andmosc.transferMoney.domain.Transfer;
+import ru.andmosc.transferMoney.dto.Transfer;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * генерация ID, хранения перевода и его ID
+ * хранения перевода и его ID
  */
 @Getter
 public class OperationsTransferId {
     private static OperationsTransferId instance;
     private final Map<Long, Transfer> mapTransferCards;
 
-    public static synchronized OperationsTransferId getInstance() {
+    public static OperationsTransferId getInstance() {
         if (instance == null) {
             instance = new OperationsTransferId();
         }
@@ -25,7 +25,7 @@ public class OperationsTransferId {
         mapTransferCards = new ConcurrentHashMap<>();
     }
 
-    public void saveTransfer(Transfer moneyTransferBody, long idOperation) {
+    public void saveTransfer(long idOperation, Transfer moneyTransferBody) {
         mapTransferCards.put(idOperation, moneyTransferBody);
     }
 }

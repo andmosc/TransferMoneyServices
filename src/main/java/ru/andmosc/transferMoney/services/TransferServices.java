@@ -1,7 +1,7 @@
 package ru.andmosc.transferMoney.services;
 
-import ru.andmosc.transferMoney.domain.ConfirmOperation;
-import ru.andmosc.transferMoney.domain.Transfer;
+import ru.andmosc.transferMoney.dto.ConfirmOperation;
+import ru.andmosc.transferMoney.dto.Transfer;
 
 public interface TransferServices {
     long transferMoney(Transfer moneyTransferBody);

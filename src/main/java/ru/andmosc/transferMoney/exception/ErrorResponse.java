@@ -10,7 +10,7 @@ public class ErrorResponse {
     private String message;
     private long id;
 
-    public static synchronized ErrorResponse getInstance() {
+    public static ErrorResponse getInstance() {
         if (instance == null) {
             instance = new ErrorResponse();
         }

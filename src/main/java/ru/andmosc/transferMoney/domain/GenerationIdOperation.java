@@ -1,10 +1,9 @@
-package ru.andmosc.transferMoney.dao;
+package ru.andmosc.transferMoney.domain;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class GenerationIdOperation {
@@ -12,16 +11,17 @@ public class GenerationIdOperation {
     private final AtomicLong id = new AtomicLong();
     private final Properties properties = new Properties();;
 
-    public synchronized long getOperationId() {
+    public long getOperationId() {
+        long idOperation;
         try {
             FileInputStream in = new FileInputStream(PATH);
             properties.load(in);
+            idOperation = Long.parseLong(String.valueOf(properties.getProperty("ID_OPERATION")));
+            saveNewIdOperation(idOperation);
             in.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        long idOperation = Long.parseLong(String.valueOf(properties.getProperty("ID_OPERATION")));
-        saveNewIdOperation(idOperation);
         return idOperation;
     }
 

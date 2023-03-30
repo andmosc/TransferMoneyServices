@@ -1,4 +1,6 @@
-package ru.andmosc.transferMoney.dao;
+package ru.andmosc.transferMoney.integration;
+
+import ru.andmosc.transferMoney.integration.ReceiveConfirmationCode;
 
 import java.io.FileInputStream;
 import java.io.IOException;

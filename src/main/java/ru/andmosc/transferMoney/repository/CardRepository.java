@@ -2,12 +2,12 @@ package ru.andmosc.transferMoney.repository;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
-import ru.andmosc.transferMoney.dao.DatabaseCards;
-import ru.andmosc.transferMoney.dao.GenerationIdOperation;
+import ru.andmosc.transferMoney.integration.DatabaseCards;
+import ru.andmosc.transferMoney.domain.GenerationIdOperation;
 import ru.andmosc.transferMoney.domain.Card;
-import ru.andmosc.transferMoney.domain.ConfirmOperation;
-import ru.andmosc.transferMoney.domain.Transfer;
-import ru.andmosc.transferMoney.dao.OperationsTransferId;
+import ru.andmosc.transferMoney.dto.ConfirmOperation;
+import ru.andmosc.transferMoney.dto.Transfer;
+import ru.andmosc.transferMoney.domain.OperationsTransferId;
 
 import java.util.Map;
 import java.util.Optional;
@@ -43,8 +43,8 @@ public class CardRepository {
         return card.getCardValidTill().equals(moneyTransferBody.getCardFromValidTill());
     }
 
-    public void saveTransferOperation(Transfer moneyTransferBody, long idOperation) {
-        operationsTransferId.saveTransfer(moneyTransferBody,idOperation);
+    public void saveTransferOperation(long idOperation, Transfer moneyTransferBody) {
+        operationsTransferId.saveTransfer(idOperation, moneyTransferBody);
     }
 
     public boolean confirmOperationCode(ConfirmOperation confirmOperationBody) {

@@ -9,9 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import ru.andmosc.transferMoney.domain.Amount;
-import ru.andmosc.transferMoney.domain.ConfirmOperation;
-import ru.andmosc.transferMoney.domain.Transfer;
+import ru.andmosc.transferMoney.dto.Amount;
+import ru.andmosc.transferMoney.dto.ConfirmOperation;
+import ru.andmosc.transferMoney.dto.Transfer;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;

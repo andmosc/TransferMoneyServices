@@ -8,9 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import ru.andmosc.transferMoney.domain.Amount;
-import ru.andmosc.transferMoney.domain.ConfirmOperation;
-import ru.andmosc.transferMoney.domain.Transfer;
+import ru.andmosc.transferMoney.dto.Amount;
+import ru.andmosc.transferMoney.dto.ConfirmOperation;
+import ru.andmosc.transferMoney.dto.Transfer;
 
 import java.io.FileInputStream;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package ru.andmosc.transferMoney.dao;
+package ru.andmosc.transferMoney.integration;
 
 public interface ReceiveConfirmationCode {
     String receiveCode();

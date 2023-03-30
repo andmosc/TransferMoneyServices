@@ -3,7 +3,7 @@ package ru.andmosc.transferMoney.util;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import ru.andmosc.transferMoney.domain.ConfirmOperation;
+import ru.andmosc.transferMoney.dto.ConfirmOperation;
 import ru.andmosc.transferMoney.exception.ErrorConfirmOperation;
 import ru.andmosc.transferMoney.repository.CardRepository;
 

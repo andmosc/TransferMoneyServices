@@ -1,4 +1,4 @@
-package ru.andmosc.transferMoney.domain.response;
+package ru.andmosc.transferMoney.dto;
 
 
 import lombok.AllArgsConstructor;

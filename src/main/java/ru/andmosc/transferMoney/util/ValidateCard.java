@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ru.andmosc.transferMoney.exception.ErrorTransferCard;
 import ru.andmosc.transferMoney.domain.Card;
-import ru.andmosc.transferMoney.domain.Transfer;
+import ru.andmosc.transferMoney.dto.Transfer;
 import ru.andmosc.transferMoney.repository.CardRepository;
 
 @NoArgsConstructor

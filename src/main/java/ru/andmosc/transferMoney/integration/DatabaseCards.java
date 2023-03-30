@@ -1,4 +1,4 @@
-package ru.andmosc.transferMoney.dao;
+package ru.andmosc.transferMoney.integration;
 
 import lombok.Getter;
 import ru.andmosc.transferMoney.domain.Card;
@@ -11,7 +11,7 @@ public class DatabaseCards {
     private final String confirmationCode;
     private static DatabaseCards instance;
 
-    public static synchronized DatabaseCards getInstance() {
+    public static DatabaseCards getInstance() {
         if (instance == null) {
             instance = new DatabaseCards();
         }

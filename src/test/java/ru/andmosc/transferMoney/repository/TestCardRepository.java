@@ -3,10 +3,10 @@ package ru.andmosc.transferMoney.repository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import ru.andmosc.transferMoney.domain.Amount;
+import ru.andmosc.transferMoney.dto.Amount;
 import ru.andmosc.transferMoney.domain.Card;
-import ru.andmosc.transferMoney.domain.ConfirmOperation;
-import ru.andmosc.transferMoney.domain.Transfer;
+import ru.andmosc.transferMoney.dto.ConfirmOperation;
+import ru.andmosc.transferMoney.dto.Transfer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -14,14 +14,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class TestCardRepository {
 
-    private static ConfirmOperation confirmOperation;
-    private static Transfer moneyTransferBody;
-    private static CardRepository repository;
-    private static Card card;
+    private ConfirmOperation confirmOperation;
+    private Transfer moneyTransferBody;
+    private CardRepository repository;
+    private Card card;
 
 
     @BeforeAll
-    public static void setUp() {
+    public void setUp() {
         repository = new CardRepository();
         moneyTransferBody = new Transfer("1111111111111111", "2222",
                 "111", "01/24", new Amount(100L, "RUR"));
